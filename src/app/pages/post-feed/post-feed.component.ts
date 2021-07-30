@@ -35,6 +35,7 @@ export class PostFeedComponent implements OnInit {
           result.docs.forEach(
             doc => {
               let post = <PostData>doc.data();
+              console.log(post);
               this.posts.push(post);
             }
           );

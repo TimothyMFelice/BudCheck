@@ -60,7 +60,7 @@ export class CreatePostComponent implements OnInit {
             data:
             {
               comment: comment,
-              cretorId: this.auth.getAuth().currentUser?.uid,
+              creatorId: this.auth.getAuth().currentUser?.uid,
               imageUrl: downloadUrl,
               timestamp: FirebaseTSApp.getFirestoreTimestamp()
             },
@@ -79,7 +79,7 @@ export class CreatePostComponent implements OnInit {
       data:
       {
         comment: comment,
-        cretorId: this.auth.getAuth().currentUser?.uid,
+        creatorId: this.auth.getAuth().currentUser?.uid,
         timestamp: FirebaseTSApp.getFirestoreTimestamp()
       },
       onComplete: (docId) => {
