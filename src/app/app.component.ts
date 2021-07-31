@@ -4,7 +4,6 @@ import { Router } from '@angular/router';
 import { FirebaseTSAuth } from 'firebasets/firebasetsAuth/firebaseTSAuth';
 import { AuthenticatorComponent } from './tools/authenticator/authenticator.component';
 import { FirebaseTSFirestore } from 'firebasets/firebasetsFirestore/firebaseTSFirestore';
-import firebase from 'firebase';
 
 @Component({
   selector: 'app-root',
@@ -16,7 +15,7 @@ export class AppComponent {
   auth = new FirebaseTSAuth();
   firestone = new FirebaseTSFirestore();
   userHasProfile = true;
-  userDocument: UserDocument;
+  static userDocument: UserDocument;
 
   constructor(private loginSheet: MatBottomSheet, private router: Router) {
     this.auth.listenToSignInStateChanges(
@@ -25,6 +24,7 @@ export class AppComponent {
           whenSignedIn: user => {
           },
           whenSignedOut: user => {
+            AppComponent.userDocument = null;
           },
           whenSignedInAndEmailNotVerified: user => {
             this.router.navigate(["emailVerification"]);
@@ -40,14 +40,32 @@ export class AppComponent {
     )
   }
 
+  public static getUserDocument(): UserDocument {
+    return AppComponent.userDocument;
+  }
+
+  isUserDocValid() {
+    return AppComponent.userDocument != null;
+  }
+
+  getUserName() {
+    try {
+      return AppComponent.userDocument.publicName;
+    }
+    catch (err) {
+      return null;
+    }
+  }
+
   getUserProfile() {
     this.firestone.listenToDocument({
       name: "Getting Document",
       path: ["Users", this.auth.getAuth().currentUser?.uid!],
       onUpdate: (result) => {
-        this.userDocument = <UserDocument>result.data();
+        AppComponent.userDocument = <UserDocument>result.data();
         this.userHasProfile = result.exists;
-        if(this.userHasProfile) {
+        AppComponent.userDocument.userId = this.auth.getAuth().currentUser.uid;
+        if (this.userHasProfile) {
           this.router.navigate(["postfeed"]);
         }
       }
@@ -70,4 +88,5 @@ export class AppComponent {
 export interface UserDocument {
   publicName: string;
   description: string;
+  userId: string;
 }
