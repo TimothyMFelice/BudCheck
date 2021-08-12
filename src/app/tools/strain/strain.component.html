@@ -1,0 +1,13 @@
+<mat-card>
+    <mat-card-header>
+        <mat-card-title>{{strainName}}</mat-card-title>
+        <mat-card-subtitle>{{strainDescription}}</mat-card-subtitle>
+    </mat-card-header>
+    <img mat-card-image src="{{strainData?.image}}">
+    <mat-card-title>Average Rating</mat-card-title>
+    <mat-card-subtitle>{{avgRating}}</mat-card-subtitle>
+    <mat-card-title>Make A Rating</mat-card-title>
+    <mat-card-actions>
+        <mat-icon (click)="onRatingClick()" class="action-item" color="warn">stars</mat-icon>
+    </mat-card-actions>
+</mat-card>

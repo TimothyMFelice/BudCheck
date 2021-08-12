@@ -1,0 +1,6 @@
+* { box-sizing: border-box; }
+
+.action-item {
+    margin-left: .5em;
+    cursor: pointer;
+}

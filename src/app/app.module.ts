@@ -21,6 +21,10 @@ import { PostFeedComponent } from './pages/post-feed/post-feed.component';
 import { CreatePostComponent } from './tools/create-post/create-post.component';
 import { PostComponent } from './tools/post/post.component';
 import { ReplyComponent } from './tools/reply/reply.component';
+import { StrainComponent } from './tools/strain/strain.component';
+import { StrainsComponent } from './pages/strains/strains.component';
+import { CreateStrainComponent } from './tools/create-strain/create-strain.component';
+import { RatingComponent } from './tools/rating/rating.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +36,11 @@ import { ReplyComponent } from './tools/reply/reply.component';
     PostFeedComponent,
     CreatePostComponent,
     PostComponent,
-    ReplyComponent
+    ReplyComponent,
+    StrainComponent,
+    StrainsComponent,
+    CreateStrainComponent,
+    RatingComponent
   ],
   imports: [
     BrowserModule,

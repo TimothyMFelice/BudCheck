@@ -16,6 +16,7 @@ export class AppComponent {
   firestone = new FirebaseTSFirestore();
   userHasProfile = true;
   static userDocument: UserDocument;
+  onWhitePage = false;
 
   constructor(private loginSheet: MatBottomSheet, private router: Router) {
     this.auth.listenToSignInStateChanges(
@@ -25,12 +26,15 @@ export class AppComponent {
           },
           whenSignedOut: user => {
             AppComponent.userDocument = null;
+            this.onWhitePage = false;
           },
           whenSignedInAndEmailNotVerified: user => {
             this.router.navigate(["emailVerification"]);
+            this.onWhitePage = true;
           },
           whenSignedInAndEmailVerified: user => {
             this.getUserProfile();
+            this.onWhitePage = true;
           },
           whenChanged: user => {
 
@@ -67,6 +71,7 @@ export class AppComponent {
         AppComponent.userDocument.userId = this.auth.getAuth().currentUser.uid;
         if (this.userHasProfile) {
           this.router.navigate(["postfeed"]);
+          this.onWhitePage = true;
         }
       }
     })
