@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "bud-check": {
+      "hosting": {
+        "Puffed": [
+          "bud-check"
+        ]
+      }
+    }
+  }
+}
