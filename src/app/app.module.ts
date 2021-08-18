@@ -25,6 +25,10 @@ import { StrainComponent } from './tools/strain/strain.component';
 import { StrainsComponent } from './pages/strains/strains.component';
 import { CreateStrainComponent } from './tools/create-strain/create-strain.component';
 import { RatingComponent } from './tools/rating/rating.component';
+import { LandingComponent } from './pages/landing/landing.component';
+import { MatFormFieldModule } from '@angular/material/form-field'
+import { MatInputModule } from '@angular/material/input'
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -40,7 +44,8 @@ import { RatingComponent } from './tools/rating/rating.component';
     StrainComponent,
     StrainsComponent,
     CreateStrainComponent,
-    RatingComponent
+    RatingComponent,
+    LandingComponent
   ],
   imports: [
     BrowserModule,
@@ -50,7 +55,10 @@ import { RatingComponent } from './tools/rating/rating.component';
     MatBottomSheetModule,
     MatCardModule,
     MatDialogModule,
-    MatIconModule
+    MatIconModule,
+    MatFormFieldModule,
+    MatInputModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

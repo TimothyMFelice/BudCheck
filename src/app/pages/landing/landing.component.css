@@ -1,0 +1,51 @@
+#landing-page {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#landing-page-content {
+    text-align: center;
+}
+
+#logo-content {
+    text-align: center;
+}
+
+.puffed-logo {
+  width: 150px;
+  height: 150px;
+  padding-top: 80px;
+  fill: currentColor;
+}
+
+.login-content-full-width {
+    width: 100%;
+}
+
+#login-form {
+    min-width: 150px;
+    max-width: 300px;
+    width: 100%;
+}
+
+.register-content-full-width {
+    width: 100%;
+}
+
+#register-form {
+    min-width: 150px;
+    max-width: 300px;
+    width: 100%;
+}
+
+.reset-content-full-width {
+    width: 100%;
+}
+
+#reset-form {
+    min-width: 150px;
+    max-width: 300px;
+    width: 100%;
+}

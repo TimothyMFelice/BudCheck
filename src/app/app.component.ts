@@ -70,7 +70,7 @@ export class AppComponent {
         this.userHasProfile = result.exists;
         AppComponent.userDocument.userId = this.auth.getAuth().currentUser.uid;
         if (this.userHasProfile) {
-          this.router.navigate(["postfeed"]);
+          //this.router.navigate(["postfeed"]);
           this.onWhitePage = true;
         }
       }
