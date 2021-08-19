@@ -1,0 +1,11 @@
+<div id="acivity-page">
+    <div id="acivity-content">
+        <mat-list>
+            <h1>Global Activity</h1>
+            <mat-divider class="wide-divider"></mat-divider>
+            <div id="acivity-feed">
+                <app-rating *ngFor="let rating of ratings" [ratingData]="rating"></app-rating>
+            </div>
+        </mat-list>
+    </div>
+</div>

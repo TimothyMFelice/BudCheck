@@ -14,13 +14,17 @@
         <form class="login-form">
             <div>
                 <mat-form-field class="login-content-full-width">
-                    <input matInput type="text" id="email" name="email" placeholder="Email*">
+                    <input #loginEmail matInput type="text" id="email" name="email" placeholder="Email*">
                 </mat-form-field>
                 <mat-form-field class="login-content-full-width">
-                    <input matInput type="password" name="password" placeholder="Password*">
+                    <input #loginPassword matInput type="password" name="password" placeholder="Password*">
                 </mat-form-field>
             </div>
         </form>
+        <!-- LOGIN -->
 
+        <mat-card-actions align=end>
+            <button mat-raised-button color='primary' (click)=" onLoginClick(loginEmail, loginPassword)">Login</button>
+        </mat-card-actions>
     </mat-card>
 </div>
