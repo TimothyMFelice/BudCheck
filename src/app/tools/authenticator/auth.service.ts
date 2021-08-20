@@ -74,14 +74,14 @@ export class AuthService {
       });
   }
 
-  private sendVerificationEMail() {
+  public sendVerificationEMail() {
     return this.afAuth.currentUser.then(u => u.sendEmailVerification())
       .then(() => {
         this.router.navigate(['email-verification']);
       });
   }
 
-  private forgotPassword(email) {
+  public forgotPassword(email) {
     return this.afAuth.sendPasswordResetEmail(email)
       .then(() => {
         window.alert('Password reset email sent, check your inbox.');
