@@ -15,6 +15,9 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { environment } from '../environments/environment';
 import { AuthService } from './tools/authenticator/auth.service';
 import { NavbarComponent } from './tools/navbar/navbar.component';
+import { ActivityComponent } from './pages/activity/activity.component';
+import { StarReviewComponent } from './tools/star/star-review/star-review.component';
+import { ProductComponent } from './tools/product/product.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +27,10 @@ import { NavbarComponent } from './tools/navbar/navbar.component';
     SignUpComponent,
     ForgotPasswordComponent,
     VerifyEmailComponent,
-    NavbarComponent
+    NavbarComponent,
+    ActivityComponent,
+    StarReviewComponent,
+    ProductComponent
   ],
   imports: [
     BrowserModule,

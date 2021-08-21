@@ -1,0 +1,8 @@
+<div class="card" style="width: 25rem;">
+    <img [src]="productData.imageURL" class="card-img-top">
+    <div class="card-body">
+        <h5 class="card-title">{{productData.displayName}}</h5>
+        <p class="card-text">{{productData.description}}</p>
+        <app-star-review [productId]="productId" [userId]="userId"></app-star-review>
+    </div>
+</div>
