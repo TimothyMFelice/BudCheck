@@ -4,6 +4,8 @@ import { AngularFireAuth } from "@angular/fire/auth";
 import { Router } from "@angular/router";
 import { User } from './user.model';
 import * as firebase from 'firebase/app';
+import { map } from 'rxjs/operators';
+import { Observable } from 'rxjs';
 
 
 @Injectable({
@@ -103,5 +105,34 @@ export class AuthService {
   get isLoggedIn(): boolean {
     const user = JSON.parse(localStorage.getItem('user'));
     return (user !== null && user.emailVerified !== false) ? true : false;
+  }
+
+  getUserNameFromUserId(userId) {
+    const userRef: AngularFirestoreDocument<any> = this.afs.doc(`users/${userId}`);
+    return userRef.valueChanges().subscribe(result => {
+      return result.displayName;
+    });
+  }
+
+  getUser(userId): Observable<User> {
+    const usersDocuments = this.afs.doc<User>(`users/${userId}`);
+    return usersDocuments.snapshotChanges()
+      .pipe(
+        map(changes => {
+          const data = changes.payload.data();
+          const id = changes.payload.id;
+          return { id, ...data };
+        }))
+  }
+
+  getProduct(productId): Observable<User> {
+    const productsDocuments = this.afs.doc<User>(`flowers/${productId}`);
+    return productsDocuments.snapshotChanges()
+      .pipe(
+        map(changes => {
+          const data = changes.payload.data();
+          const id = changes.payload.id;
+          return { id, ...data };
+        }))
   }
 }

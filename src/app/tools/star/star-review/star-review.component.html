@@ -2,9 +2,9 @@
 {{avgRating | async }}
 
 <h3>Reviews</h3>
-<div *ngFor="let star of stars | async;  let i=index">
+<div *ngFor="let star of starsDoc | async;  let i=index">
     <div *ngIf="i<2">
-        {{ star.userId}} gave {{ star.productId }} {{ star.value }} stars
+        {{ this.usersName[i] }} gave {{ this.productsName[i] }} {{ star.value }} stars
     </div>
 </div>
 
