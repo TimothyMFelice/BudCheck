@@ -18,8 +18,8 @@ export class AuthService {
     this.afAuth.authState.subscribe(user => {
       if (user) {
         this.userState = user;
-        localStorage.setItem('users', JSON.stringify(this.userState));
-        JSON.parse(localStorage.getItem('users'));
+        localStorage.setItem('user', JSON.stringify(this.userState));
+        JSON.parse(localStorage.getItem('user'));
       } else {
         localStorage.setItem('user', null);
         JSON.parse(localStorage.getItem('user'));
@@ -34,10 +34,9 @@ export class AuthService {
           this.router.navigate(['home']);
         });
         this.setUserData(result.user);
-      }
-      ).catch((error) => {
-        window.alert(error.message);
-      });
+      }).catch((error) => {
+        window.alert(error.message)
+      })
   }
 
   public signUpWithEmailAndPassword(email, password) {
@@ -46,8 +45,8 @@ export class AuthService {
         this.sendVerificationEMail();
         this.setUserData(result.user);
       }).catch((error) => {
-        window.alert(error.message);
-      });
+        window.alert(error.message)
+      })
   }
 
   public signInWithGoogle() {
@@ -67,18 +66,17 @@ export class AuthService {
   }
 
   public signOut() {
-    return this.afAuth.signOut()
-      .then(() => {
-        localStorage.removeItem('user');
-        this.router.navigate(['sign-in']);
-      });
+    return this.afAuth.signOut().then(() => {
+      localStorage.removeItem('user');
+      this.router.navigate(['sign-in']);
+    });
   }
 
   public sendVerificationEMail() {
     return this.afAuth.currentUser.then(u => u.sendEmailVerification())
       .then(() => {
         this.router.navigate(['email-verification']);
-      });
+      })
   }
 
   public forgotPassword(email) {
@@ -86,8 +84,8 @@ export class AuthService {
       .then(() => {
         window.alert('Password reset email sent, check your inbox.');
       }).catch((error) => {
-        window.alert(error.message);
-      });
+        window.alert(error)
+      })
   }
 
   private setUserData(user) {
