@@ -1,7 +1,7 @@
-<h3>Average Rating</h3>
-{{avgRating | async }}
+<h1 class="card-text">Average Rating</h1>
+<h1 class="card-text">{{avgRating | async }}</h1>
 
-<h3>Reviews</h3>
+<!-- <h3>Reviews</h3>
 <div *ngFor="let star of starsDoc | async;  let i=index">
     <div *ngIf="i<2">
         {{ this.usersName[i] }} gave {{ this.productsName[i] }} {{ star.value }} stars
@@ -12,11 +12,9 @@
 
 <fieldset class="rating">
     <ng-container *ngFor="let num of [5, 4, 3, 2, 1]">
-        <!-- full star -->
         <input (click)="starHandler(num)" [id]="'star'+num" [value]="num-0.5" name="rating" type="radio" />
         <label class="full" [for]="'star'+num"></label>
-        <!-- half star -->
         <input (click)="starHandler(num-0.5)" [value]="num-0.5" [id]="'halfstar'+num" name="rating" type="radio" />
         <label class="half" [for]="'halfstar'+num"></label>
     </ng-container>
-</fieldset>
+</fieldset> -->

@@ -7,3 +7,7 @@ export interface Product {
     imageURL: string;
     thc: number;
 }
+
+export interface Brand {
+    displayName: string;
+}

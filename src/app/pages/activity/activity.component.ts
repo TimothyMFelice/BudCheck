@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
 import { Product } from 'src/app/tools/product/product.model';
+import { RatingService } from 'src/app/tools/rating/rating.service';
 
 @Component({
   selector: 'app-activity',
@@ -12,15 +13,17 @@ export class ActivityComponent implements OnInit {
 
   products: Array<any>;
 
-  constructor(private afs: AngularFirestore) { }
+  ratings: Array<any>;
+
+  constructor(private afs: AngularFirestore, private ratingService: RatingService) { }
 
   ngOnInit(): void {
-    this.getProducts();
+    this.getGlobalActivity();
   }
 
-  getProducts() {
-    this.afs.collection('flowers').snapshotChanges().subscribe(result => {
-      this.products = result;
+  getGlobalActivity() {
+    this.ratingService.getGlobalRatings().then((querySnapshot) => {
+      this.ratings = querySnapshot.docs;
     });
   }
 }

@@ -1,3 +1,16 @@
-<div id="activity-feed">
-    <app-product *ngFor="let product of products" [productDoc]='product.payload.doc'></app-product>
+<div class="container">
+    <div class="row mt-5">
+        <h5 class="text-left col-8 fs-1 fw-bold">Global Recent Activity</h5>
+        <div class="col-4 pt-2" style="max-width: 150px;">
+            <select class="form-select form-select-lg" style="font-size: small;" aria-label="Default select example">
+                <option selected>Global</option>
+                <option value="1">Friends</option>
+                <option value="2">Two</option>
+                <option value="3">Three</option>
+            </select>
+        </div>
+    </div>
+    <div class="row">
+        <app-activity-rating *ngFor="let rating of ratings" [ratingDoc]="rating"></app-activity-rating>
+    </div>
 </div>
