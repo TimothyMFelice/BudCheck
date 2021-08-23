@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { ApiService } from 'src/app/tools/api/api.service';
 import { Brand, Product } from 'src/app/tools/product/product.model';
 import { Rating } from 'src/app/tools/rating/rating.model';
 import { RatingService } from 'src/app/tools/rating/rating.service';
@@ -14,14 +15,14 @@ export class ProductPageComponent implements OnInit {
   productId: any;
   productData: Product;
   brandData: Brand;
-  productRatings: Array<Rating> = [];
+  productRatings: Array<any>;
 
-  constructor(private activatedroute: ActivatedRoute, private ratingService: RatingService) { }
+  constructor(private activatedroute: ActivatedRoute, private apiService: ApiService) { }
 
   ngOnInit(): void {
     this.productId = this.activatedroute.snapshot.paramMap.get("id");
 
-    this.ratingService.getProduct(this.productId).then(doc => {
+    this.apiService.getProduct(this.productId).then(doc => {
       this.productData = {
         brandId: doc.data().brandId,
         cannabisType: doc.data().cannabisType,
@@ -32,25 +33,15 @@ export class ProductPageComponent implements OnInit {
         thc: doc.data().thc,
       }
 
-      this.ratingService.getBrand(this.productData.brandId).then(doc => {
+      this.apiService.getBrand(this.productData.brandId).then(doc => {
         this.brandData = {
           displayName: doc.data().displayName,
         }
       });
     });
 
-    this.ratingService.getGlobalRatings().then((querySnapshot) => {
-      querySnapshot.docs.forEach(doc => {
-        this.productRatings.push({
-          productId: doc.data().productId,
-          userId: doc.data().userId,
-          value: doc.data().value,
-          description: doc.data().description,
-          imageURL: doc.data().imageURL,
-          timestamp: doc.data().timestamp
-        });
-      });
+    this.apiService.getProductGlobalActivity(this.productId).then((querySnapshot) => {
+      this.productRatings = querySnapshot.docs;
     });
   }
-
 }
