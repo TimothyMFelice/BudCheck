@@ -19,6 +19,7 @@ import { ActivityComponent } from './pages/activity/activity.component';
 import { StarReviewComponent } from './tools/star/star-review/star-review.component';
 import { ProductComponent } from './tools/product/product.component';
 import { ActivityRatingComponent } from './tools/rating/activity-rating/activity-rating.component';
+import { ProductPageComponent } from './pages/product-page/product-page.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { ActivityRatingComponent } from './tools/rating/activity-rating/activity
     ActivityComponent,
     StarReviewComponent,
     ProductComponent,
-    ActivityRatingComponent
+    ActivityRatingComponent,
+    ProductPageComponent
   ],
   imports: [
     BrowserModule,

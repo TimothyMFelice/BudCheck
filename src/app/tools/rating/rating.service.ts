@@ -27,4 +27,9 @@ export class RatingService {
     const brandsDocRef = this.afs.firestore.doc(`brands/${brandId}`);
     return brandsDocRef.get();
   }
+
+  getProductRatings(productId) {
+    const ratingCollectionRef = this.afs.firestore.collection(`ratings`).where("productId", '==', productId);
+    return ratingCollectionRef.get();
+  }
 }
