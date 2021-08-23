@@ -20,6 +20,8 @@ import { StarReviewComponent } from './tools/star/star-review/star-review.compon
 import { ProductComponent } from './tools/product/product.component';
 import { ActivityRatingComponent } from './tools/rating/activity-rating/activity-rating.component';
 import { ProductPageComponent } from './pages/product-page/product-page.component';
+import { ActivityItemComponent } from './tools/activity/activity-item/activity-item.component';
+import { GlobalActivityFeedComponent } from './pages/activity/global-activity-feed/global-activity-feed.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +36,9 @@ import { ProductPageComponent } from './pages/product-page/product-page.componen
     StarReviewComponent,
     ProductComponent,
     ActivityRatingComponent,
-    ProductPageComponent
+    ProductPageComponent,
+    ActivityItemComponent,
+    GlobalActivityFeedComponent
   ],
   imports: [
     BrowserModule,

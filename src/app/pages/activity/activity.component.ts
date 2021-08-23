@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
+import { ApiService } from 'src/app/tools/api/api.service';
 import { Product } from 'src/app/tools/product/product.model';
 import { RatingService } from 'src/app/tools/rating/rating.service';
 
@@ -13,17 +14,17 @@ export class ActivityComponent implements OnInit {
 
   products: Array<any>;
 
-  ratings: Array<any>;
+  ratingsDocs: Array<any>;
 
-  constructor(private afs: AngularFirestore, private ratingService: RatingService) { }
+  constructor(private afs: AngularFirestore, private apiService: ApiService) { }
 
   ngOnInit(): void {
     this.getGlobalActivity();
   }
 
   getGlobalActivity() {
-    this.ratingService.getGlobalRatings().then((querySnapshot) => {
-      this.ratings = querySnapshot.docs;
+    this.apiService.getAllRatings().then((querySnapshot) => {
+      this.ratingsDocs = querySnapshot.docs;
     });
   }
 }
