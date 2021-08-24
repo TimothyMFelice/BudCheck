@@ -19,11 +19,12 @@ import { AuthService } from './tools/authenticator/auth.service';
 import { NavbarComponent } from './tools/navbar/navbar.component';
 import { ActivityComponent } from './pages/activity/activity.component';
 import { StarReviewComponent } from './tools/star/star-review/star-review.component';
-import { ProductComponent } from './tools/product/product.component';
 import { ActivityRatingComponent } from './tools/rating/activity-rating/activity-rating.component';
-import { ProductPageComponent } from './pages/product-page/product-page.component';
+import { ProductPageComponent } from './pages/product/product-page/product-page.component';
 import { ActivityItemComponent } from './tools/activity/activity-item/activity-item.component';
 import { GlobalActivityFeedComponent } from './pages/activity/global-activity-feed/global-activity-feed.component';
+import { ProductFeedComponent } from './pages/product/product-feed/product-feed.component';
+import { ProductItemComponent } from './tools/product/product-item/product-item.component';
 
 @NgModule({
   declarations: [
@@ -36,11 +37,12 @@ import { GlobalActivityFeedComponent } from './pages/activity/global-activity-fe
     NavbarComponent,
     ActivityComponent,
     StarReviewComponent,
-    ProductComponent,
     ActivityRatingComponent,
     ProductPageComponent,
     ActivityItemComponent,
     GlobalActivityFeedComponent,
+    ProductFeedComponent,
+    ProductItemComponent,
   ],
   imports: [
     BrowserModule,

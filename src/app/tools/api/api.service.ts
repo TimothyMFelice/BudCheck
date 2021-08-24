@@ -30,8 +30,13 @@ export class ApiService {
 
   // Products
   getProduct(productId): Promise<any> {
-    const prodcutDocRef = this.afs.firestore.doc(`flowers/${productId}`);
-    return prodcutDocRef.get();
+    const productDocRef = this.afs.firestore.doc(`flowers/${productId}`);
+    return productDocRef.get();
+  }
+
+  getAllProducts(): Promise<any> {
+    const productCollectionRef = this.afs.firestore.collection(`flowers`);
+    return productCollectionRef.get();
   }
 
   // Brand

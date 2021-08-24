@@ -9,9 +9,10 @@ import { VerifyEmailComponent } from './pages/verify-email/verify-email.componen
 import { AppComponent } from './app.component';
 import { AngularFireAuthGuard, hasCustomClaim, redirectUnauthorizedTo, redirectLoggedInTo } from '@angular/fire/auth-guard';
 import { ActivityComponent } from './pages/activity/activity.component';
-import { ProductPageComponent } from './pages/product-page/product-page.component';
+import { ProductPageComponent } from './pages/product/product-page/product-page.component';
 import { GlobalActivityFeedComponent } from './pages/activity/global-activity-feed/global-activity-feed.component';
 import { CreateProductComponent } from './pages/create/create-product/create-product.component';
+import { ProductFeedComponent } from './pages/product/product-feed/product-feed.component';
 
 const redirectUnauthorizedToLogin = () => redirectUnauthorizedTo(['sign-in']);
 const redirectLoggedInToItems = () => redirectLoggedInTo(['home']);
@@ -22,6 +23,7 @@ const routes: Routes = [
   { path: 'sign-in', component: SignInComponent, canActivate: [AngularFireAuthGuard], data: { authGuardPipe: redirectLoggedInToItems } },
   { path: 'home', component: HomeComponent, canActivate: [AngularFireAuthGuard], data: { authGuardPipe: redirectUnauthorizedToLogin } },
   { path: 'activity', component: GlobalActivityFeedComponent, canActivate: [AngularFireAuthGuard], data: { authGuardPipe: redirectUnauthorizedToLogin } },
+  { path: 'products', component: ProductFeedComponent, canActivate: [AngularFireAuthGuard], data: { authGuardPipe: redirectUnauthorizedToLogin } },
   { path: 'product/:id', component: ProductPageComponent, canActivate: [AngularFireAuthGuard], data: { authGuardPipe: redirectUnauthorizedToLogin } },
   { path: 'createproduct', component: CreateProductComponent, canActivate: [AngularFireAuthGuard], data: { authGuardPipe: redirectUnauthorizedToLogin } },
   { path: 'forgot-password', component: ForgotPasswordComponent },
