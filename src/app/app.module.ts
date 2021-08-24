@@ -12,6 +12,8 @@ import { VerifyEmailComponent } from './pages/verify-email/verify-email.componen
 import { AngularFireModule } from "@angular/fire";
 import { AngularFireAuthModule } from "@angular/fire/auth";
 import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { AngularFireStorageModule } from '@angular/fire/storage'
+
 import { environment } from '../environments/environment';
 import { AuthService } from './tools/authenticator/auth.service';
 import { NavbarComponent } from './tools/navbar/navbar.component';
@@ -38,7 +40,7 @@ import { GlobalActivityFeedComponent } from './pages/activity/global-activity-fe
     ActivityRatingComponent,
     ProductPageComponent,
     ActivityItemComponent,
-    GlobalActivityFeedComponent
+    GlobalActivityFeedComponent,
   ],
   imports: [
     BrowserModule,
@@ -46,6 +48,7 @@ import { GlobalActivityFeedComponent } from './pages/activity/global-activity-fe
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,
     AngularFirestoreModule,
+    AngularFireStorageModule
   ],
   providers: [AuthService],
   bootstrap: [AppComponent]

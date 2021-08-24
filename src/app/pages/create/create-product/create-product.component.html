@@ -1,0 +1,51 @@
+<div class="container px-5 my-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-8">
+            <div class="card border-0 rounded-3 shadow-lg">
+                <div class="card-body p-4">
+                    <div class="text-center">
+                        <div class="h1 fw-light">Create Product Form</div>
+                        <p class="mb-4 text-muted">Some sub text that doesnt really matter</p>
+                    </div>
+                    <form id="createProductForm" onsubmit="return false">
+                        <!-- Name Input -->
+                        <div class="form-floating mb-3">
+                            <input #displayName class="form-control" id="displayName" type="text" placeholder="Name" />
+                            <label for="name">Name</label>
+                        </div>
+                        <!-- Description Input -->
+                        <div class="form-floating mb-3">
+                            <textarea #description class="form-control" id="description" type="text" placeholder="Description"
+                                style="height: 10rem;"></textarea>
+                            <label for="description">Description</label>
+                        </div>
+                        <!-- CannabisType Input -->
+                        <div class="form-floating mb-3">
+                            <input #cannabisType class="form-control" id="cannabisType" type="text" placeholder="Type" />
+                            <label for="cannabisType">Cannabis Type</label>
+                        </div>
+                        <!-- thc Input -->
+                        <div class="form-floating mb-3">
+                            <input #thc class="form-control" id="thc" type="text" placeholder="thc" />
+                            <label for="thc">THC</label>
+                        </div>
+                        <!-- cbd Input -->
+                        <div class="form-floating mb-3">
+                            <input #cbd class="form-control" id="cbd" type="text" placeholder="cbd" />
+                            <label for="cbd">CBD</label>
+                        </div>
+                        <!-- image Input -->
+                        <div class="input-group mb-3">
+                            <input #image type="file" class="form-control" id="image">
+                        </div>
+
+                        <!-- Submit button -->
+                        <div class="d-grid">
+                            <button (click)="onProductCreate(displayName, description, cannabisType, thc, cbd, image)" class="btn btn-primary btn-lg" id="submitButton">Submit</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

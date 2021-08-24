@@ -11,6 +11,7 @@ import { AngularFireAuthGuard, hasCustomClaim, redirectUnauthorizedTo, redirectL
 import { ActivityComponent } from './pages/activity/activity.component';
 import { ProductPageComponent } from './pages/product-page/product-page.component';
 import { GlobalActivityFeedComponent } from './pages/activity/global-activity-feed/global-activity-feed.component';
+import { CreateProductComponent } from './pages/create/create-product/create-product.component';
 
 const redirectUnauthorizedToLogin = () => redirectUnauthorizedTo(['sign-in']);
 const redirectLoggedInToItems = () => redirectLoggedInTo(['home']);
@@ -22,6 +23,7 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent, canActivate: [AngularFireAuthGuard], data: { authGuardPipe: redirectUnauthorizedToLogin } },
   { path: 'activity', component: GlobalActivityFeedComponent, canActivate: [AngularFireAuthGuard], data: { authGuardPipe: redirectUnauthorizedToLogin } },
   { path: 'product/:id', component: ProductPageComponent, canActivate: [AngularFireAuthGuard], data: { authGuardPipe: redirectUnauthorizedToLogin } },
+  { path: 'createproduct', component: CreateProductComponent, canActivate: [AngularFireAuthGuard], data: { authGuardPipe: redirectUnauthorizedToLogin } },
   { path: 'forgot-password', component: ForgotPasswordComponent },
   { path: 'email-verification', component: VerifyEmailComponent }
 ];
