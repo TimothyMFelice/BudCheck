@@ -4,23 +4,24 @@
     <!-- Product details-->
     <div class="card-body p-4">
         <div class="text-center">
-            <!-- Product name-->    
+            <!-- Product name-->
             <h5 class="fw-bolder">{{productData?.displayName}}
-            <p class="fw-lighter">by {{brandData?.displayName}}</p></h5>
+                <p class="fw-lighter">by {{brandData?.displayName}}</p>
+            </h5>
             <!-- Product price-->
             Puffed by {{userData?.displayName}}.
             <!-- Product reviews-->
-            <div class="d-flex justify-content-center small text-warning mb-2">
-                <div class="bi-star-fill"></div>
-                <div class="bi-star-fill"></div>
-                <div class="bi-star-fill"></div>
-                <div class="bi-star-fill"></div>
-                <div class="bi-star-fill"></div>
+            <div class="d-flex justify-content-center small mb-2">
+                <div *ngFor="let fill of fullStars" class="text-warning bi bi-star-fill"></div>
+                <div *ngFor="let fill of halfStars" class="text-warning bi bi-star-half"></div>
+                <div *ngFor="let fill of noStars" class="text-warning bi bi-star"></div>
+                <p class="ps-2">({{ratingData?.value}})</p>
             </div>
         </div>
     </div>
     <!-- Product actions-->
     <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-        <div class="text-center"><a class="btn btn-outline-dark mt-auto" [routerLink]="['/product', 'EzMrOgxdH4lhB2GaDbac']">View options</a></div>
+        <div class="text-center"><a class="btn btn-outline-dark mt-auto"
+                [routerLink]="['/product', 'EzMrOgxdH4lhB2GaDbac']">View options</a></div>
     </div>
 </div>

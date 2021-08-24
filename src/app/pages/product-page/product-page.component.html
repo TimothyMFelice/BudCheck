@@ -7,12 +7,11 @@
             <div class="col-md-6">
                 <h1 class="display-5 fw-bolder">{{productData?.displayName}}</h1>
                 <div class="fs-5 mb-2">{{brandData?.displayName}}</div>
-                <div class="d-flex text-warning mb-2">
-                    <div class="bi-star-fill"></div>
-                    <div class="bi-star-fill"></div>
-                    <div class="bi-star-fill"></div>
-                    <div class="bi-star-fill"></div>
-                    <div class="bi-star-fill"></div>
+                <div class="d-flex mb-2">
+                    <div *ngFor="let fill of fullStars" class="text-warning bi bi-star-fill"></div>
+                    <div *ngFor="let fill of halfStars" class="text-warning bi bi-star-half"></div>
+                    <div *ngFor="let fill of noStars" class="text-warning bi bi-star"></div>
+                    <p class="ps-2">({{rating}})</p>
                 </div>
                 <p class="lead" style="max-height: 250px; overflow-y: hidden;">{{productData?.description}}</p>
                 <div class="d-flex">
