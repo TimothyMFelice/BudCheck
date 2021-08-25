@@ -25,6 +25,8 @@ import { ActivityItemComponent } from './tools/activity/activity-item/activity-i
 import { GlobalActivityFeedComponent } from './pages/activity/global-activity-feed/global-activity-feed.component';
 import { ProductFeedComponent } from './pages/product/product-feed/product-feed.component';
 import { ProductItemComponent } from './tools/product/product-item/product-item.component';
+import { RegisterComponent } from './pages/authentication/register/register.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -43,10 +45,13 @@ import { ProductItemComponent } from './tools/product/product-item/product-item.
     GlobalActivityFeedComponent,
     ProductFeedComponent,
     ProductItemComponent,
+    RegisterComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,
     AngularFirestoreModule,
