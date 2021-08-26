@@ -1,52 +1,19 @@
 import { NgModule } from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HomeComponent } from './pages/home/home.component';
-import { SignInComponent } from './pages/sign-in/sign-in.component';
-import { SignUpComponent } from './pages/sign-up/sign-up.component';
-import { ForgotPasswordComponent } from './pages/forgot-password/forgot-password.component';
-import { VerifyEmailComponent } from './pages/verify-email/verify-email.component';
+import { LoginComponent } from './authentication/login/login.component';
 
 import { AngularFireModule } from "@angular/fire";
 import { AngularFireAuthModule } from "@angular/fire/auth";
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireStorageModule } from '@angular/fire/storage'
-
-import { environment } from '../environments/environment';
-import { AuthService } from './tools/authenticator/auth.service';
-import { NavbarComponent } from './tools/navbar/navbar.component';
-import { ActivityComponent } from './pages/activity/activity.component';
-import { StarReviewComponent } from './tools/star/star-review/star-review.component';
-import { ActivityRatingComponent } from './tools/rating/activity-rating/activity-rating.component';
-import { ProductPageComponent } from './pages/product/product-page/product-page.component';
-import { ActivityItemComponent } from './tools/activity/activity-item/activity-item.component';
-import { GlobalActivityFeedComponent } from './pages/activity/global-activity-feed/global-activity-feed.component';
-import { ProductFeedComponent } from './pages/product/product-feed/product-feed.component';
-import { ProductItemComponent } from './tools/product/product-item/product-item.component';
-import { RegisterComponent } from './pages/authentication/register/register.component';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { environment } from 'src/environments/environment';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    HomeComponent,
-    SignInComponent,
-    SignUpComponent,
-    ForgotPasswordComponent,
-    VerifyEmailComponent,
-    NavbarComponent,
-    ActivityComponent,
-    StarReviewComponent,
-    ActivityRatingComponent,
-    ProductPageComponent,
-    ActivityItemComponent,
-    GlobalActivityFeedComponent,
-    ProductFeedComponent,
-    ProductItemComponent,
-    RegisterComponent,
-  ],
+  declarations: [AppComponent, LoginComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -55,9 +22,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,
     AngularFirestoreModule,
-    AngularFireStorageModule
+    AngularFireStorageModule,
   ],
-  providers: [AuthService],
-  bootstrap: [AppComponent]
+  providers: [],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
