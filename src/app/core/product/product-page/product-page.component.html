@@ -14,11 +14,14 @@
                     <p class="ps-2">({{rating}})</p>
                 </div>
                 <p class="lead" style="max-height: 250px; overflow-y: hidden;">{{productData?.description}}</p>
-                <div class="d-flex">
+                <div class="d-flex justify-content-between">
                     <div class="card-footer">
                         <p class="m-0">THC: {{productData?.thc}} | CBD: {{productData?.cbd}}</p>
                         <p class="m-0">{{productData?.cannabisType}}</p>
                         <p class="m-0">{{productRatings?.length}} Ratings</p>
+                    </div>
+                    <div>
+                        <app-product-checkin></app-product-checkin>
                     </div>
                 </div>
             </div>
@@ -30,7 +33,7 @@
         <h2 class="fw-bolder mb-4">Related products</h2>
         <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
             <div class="col mb-5">
-                <!-- <app-activity-item *ngFor="let ratingDoc of productRatings" [ratingDoc]="ratingDoc"></app-activity-item> -->
+                <app-activity-item *ngFor="let ratingDoc of productRatings" [ratingDoc]="ratingDoc"></app-activity-item>
             </div>
         </div>
     </div>

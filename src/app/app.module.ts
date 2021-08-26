@@ -19,6 +19,7 @@ import { ProductPageComponent } from './core/product/product-page/product-page.c
 import { ActivityFeedComponent } from './core/activity/activity-feed/activity-feed.component';
 import { ActivityItemComponent } from './core/activity/activity-item/activity-item.component';
 import { ProductCreateComponent } from './core/product/product-create/product-create.component';
+import { ProductCheckinComponent } from './core/product/product-checkin/product-checkin.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import { ProductCreateComponent } from './core/product/product-create/product-cr
     ActivityFeedComponent,
     ActivityItemComponent,
     ProductCreateComponent,
+    ProductCheckinComponent,
   ],
   imports: [
     BrowserModule,
