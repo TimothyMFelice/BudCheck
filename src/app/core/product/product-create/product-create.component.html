@@ -1,0 +1,148 @@
+<div class="container px-5 my-5">
+  <div class="row justify-content-center">
+    <div class="col-lg-8">
+      <div class="card border-0 rounded-3 shadow-lg">
+        <div class="card-body p-4">
+          <div class="text-center">
+            <div class="h1 fw-light">Create Product Form</div>
+            <p class="mb-4 text-muted">
+              Some sub text that doesnt really matter
+            </p>
+          </div>
+          <form [formGroup]="productForm" (ngSubmit)="createProduct(imageInput)">
+            <!-- Name Input -->
+            <div class="form-floating mb-3">
+              <input
+                formControlName="name"
+                class="form-control"
+                id="displayName"
+                type="text"
+                placeholder="Name"
+                required
+              />
+              <label for="name">Name</label>
+              <div
+                *ngIf="name.invalid && name.dirty"
+                class="alert alert-danger"
+                role="alert"
+              >
+                Your name doesn't look quite right...
+              </div>
+            </div>
+
+            <!-- Description Input -->
+            <div class="form-floating mb-3">
+              <textarea
+                formControlName="description"
+                class="form-control"
+                id="description"
+                type="text"
+                placeholder="Description"
+                style="height: 10rem"
+                placeholder="Type"
+                required
+              ></textarea>
+              <label for="description">Description</label>
+              <div
+                *ngIf="description.invalid && description.touched"
+                class="alert alert-danger"
+                role="alert"
+              >
+                Description must be between 6 and 24 chars
+              </div>
+            </div>
+
+            <!-- CannabisType Input -->
+            <div class="form-floating mb-3">
+              <input
+                formControlName="cannabisType"
+                class="form-control"
+                id="cannabisType"
+                type="text"
+                placeholder="Type"
+                required
+              />
+              <label for="cannabisType">Cannabis Type</label>
+              <div
+                *ngIf="cannabisType.invalid && cannabisType.dirty"
+                class="alert alert-danger"
+                role="alert"
+              >
+                Your Cannabis Type doesn't look quite right...
+              </div>
+            </div>
+
+            <!-- thc Input -->
+            <div class="form-floating mb-3">
+              <input
+                formControlName="thc"
+                class="form-control"
+                id="thc"
+                type="text"
+                placeholder="thc"
+                placeholder="Type"
+                required
+              />
+              <label for="thc">THC</label>
+              <div
+                *ngIf="thc.invalid && thc.dirty"
+                class="alert alert-danger"
+                role="alert"
+              >
+                Your THC doesn't look quite right...
+              </div>
+            </div>
+            <!-- cbd Input -->
+            <div class="form-floating mb-3">
+              <input
+                formControlName="cbd"
+                class="form-control"
+                id="cbd"
+                type="text"
+                placeholder="cbd"
+                required
+              />
+              <label for="cbd">CBD</label>
+              <div
+                *ngIf="cbd.invalid && cbd.dirty"
+                class="alert alert-danger"
+                role="alert"
+              >
+                Your CBD doesn't look quite right...
+              </div>
+            </div>
+            <!-- image Input -->
+            <div class="input-group mb-3">
+              <input
+                #imageInput
+                formControlName="image"
+                type="file"
+                class="form-control"
+                id="image"
+                required
+              />
+              <div
+                *ngIf="image.invalid && image.dirty"
+                class="alert alert-danger"
+                role="alert"
+              >
+                Your Image doesn't look quite right...
+              </div>
+            </div>
+
+            <!-- Submit button -->
+            <div class="d-grid">
+              <button
+                class="btn btn-primary btn-login text-uppercase fw-bold"
+                type="submit"
+                [disabled]="!productForm.valid"
+              >
+                Submit
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

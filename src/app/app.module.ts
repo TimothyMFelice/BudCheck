@@ -18,6 +18,7 @@ import { ProductItemComponent } from './core/product/product-item/product-item.c
 import { ProductPageComponent } from './core/product/product-page/product-page.component';
 import { ActivityFeedComponent } from './core/activity/activity-feed/activity-feed.component';
 import { ActivityItemComponent } from './core/activity/activity-item/activity-item.component';
+import { ProductCreateComponent } from './core/product/product-create/product-create.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { ActivityItemComponent } from './core/activity/activity-item/activity-it
     ProductPageComponent,
     ActivityFeedComponent,
     ActivityItemComponent,
+    ProductCreateComponent,
   ],
   imports: [
     BrowserModule,

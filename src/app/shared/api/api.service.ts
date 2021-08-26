@@ -58,7 +58,20 @@ export class ApiService {
     return userRef.set(defaultUser);
   }
 
+  createNewId() {
+    return this.afs.createId();
+  }
+
   // PRODUCTS
+  createProduct(productData: Product) {
+    const productId = this.afs.createId();
+
+    const productRef: AngularFirestoreDocument<any> = this.afs.doc(
+      `flowers/${productId}`
+    );
+    return productRef.set(productData, { merge: true });
+  }
+
   getAllProducts() {
     return this.afs
       .collection<Product>(`flowers`, (ref) => ref.limit(10))
@@ -66,7 +79,10 @@ export class ApiService {
   }
 
   getProduct(productId) {
-    return this.afs.collection<Product>('flowers').doc(productId).snapshotChanges();
+    return this.afs
+      .collection<Product>('flowers')
+      .doc(productId)
+      .snapshotChanges();
   }
 
   // BRANDS
@@ -76,7 +92,9 @@ export class ApiService {
 
   // RATINGS
   getAllRatings() {
-    return this.afs.collection<Rating>(`ratings`, (ref) => ref.limit(10)).snapshotChanges();
+    return this.afs
+      .collection<Rating>(`ratings`, (ref) => ref.limit(10))
+      .snapshotChanges();
   }
 
   getProductGlobalActivity(productId) {
