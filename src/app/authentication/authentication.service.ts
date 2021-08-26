@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
+import { Router } from '@angular/router';
 import { ApiService } from '../shared/api/api.service';
 
 @Injectable({
@@ -8,7 +9,11 @@ import { ApiService } from '../shared/api/api.service';
 export class AuthenticationService {
   userState: any;
 
-  constructor(private afAuth: AngularFireAuth, private api: ApiService) {
+  constructor(
+    private afAuth: AngularFireAuth,
+    private api: ApiService,
+    private router: Router
+  ) {
     this.trackUserState();
   }
 
@@ -24,5 +29,15 @@ export class AuthenticationService {
 
   public loginWithEmailAndPassword(email, password) {
     this.api.signInWithEmailAndPassword(email, password);
+  }
+
+  public registerWithEmailAndPassword(email, password, username) {
+    this.api.signUpWithEmailAndPassword(email, password, username);
+  }
+
+  public logout() {
+    this.api.signOut().then(() => {
+      this.router.navigate(['/login']);
+    });
   }
 }

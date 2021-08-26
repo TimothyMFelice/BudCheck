@@ -6,15 +6,31 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './authentication/login/login.component';
 
-import { AngularFireModule } from "@angular/fire";
-import { AngularFireAuthModule } from "@angular/fire/auth";
+import { AngularFireModule } from '@angular/fire';
+import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
-import { AngularFireStorageModule } from '@angular/fire/storage'
+import { AngularFireStorageModule } from '@angular/fire/storage';
 import { environment } from 'src/environments/environment';
 import { RegisterComponent } from './authentication/register/register.component';
+import { HeaderComponent } from './shared/header/header.component';
+import { ProductFeedComponent } from './core/product/product-feed/product-feed.component';
+import { ProductItemComponent } from './core/product/product-item/product-item.component';
+import { ProductPageComponent } from './core/product/product-page/product-page.component';
+import { ActivityFeedComponent } from './core/activity/activity-feed/activity-feed.component';
+import { ActivityItemComponent } from './core/activity/activity-item/activity-item.component';
 
 @NgModule({
-  declarations: [AppComponent, LoginComponent, RegisterComponent],
+  declarations: [
+    AppComponent,
+    LoginComponent,
+    RegisterComponent,
+    HeaderComponent,
+    ProductFeedComponent,
+    ProductItemComponent,
+    ProductPageComponent,
+    ActivityFeedComponent,
+    ActivityItemComponent,
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
