@@ -5,9 +5,21 @@
   <div class="card-body p-4">
     <div class="text-center">
       <!-- Product name-->
-      <h5 class="fw-bolder">
-        {{ productData?.displayName }}
-        <p class="fw-lighter">by {{ brandData?.displayName }}</p>
+      <h5 class="fw-bolder" href>
+        <a
+          class="link-dark text-decoration-none"
+          [routerLink]="['/product', ratingData.productId]"
+        >
+          {{ productData?.displayName }}
+        </a>
+        <p class="fw-lighter">
+          by
+          <a
+            class="link-dark text-decoration-none"
+            [routerLink]="['/product', ratingData.productId]"
+            >{{ brandData?.displayName }}</a
+          >
+        </p>
       </h5>
       <!-- Product price-->
       Puffed by {{ userData?.displayName }}.

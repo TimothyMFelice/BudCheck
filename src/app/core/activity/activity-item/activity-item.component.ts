@@ -41,7 +41,7 @@ export class ActivityItemComponent implements OnInit {
     };
 
     let value = this.ratingData.value;
-    for (let i = 1; i < value; i++) {
+    for (let i = 1; i <= value; i++) {
       this.fullStars.push(value);
     }
     if (value % 1 >= 0.5) {
