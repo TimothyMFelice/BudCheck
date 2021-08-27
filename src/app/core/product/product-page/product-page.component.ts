@@ -62,24 +62,26 @@ export class ProductPageComponent implements OnInit {
 
           this.productRatings.forEach((rating) => {
             let rate: Rating = rating.payload.doc.data();
-
             let value = rate.value;
             this.ratings.push(value);
-
-            this.fullStars = [];
-            this.halfStars = [];
-            this.noStars = [];
-            for (let i = 1; i < value; i++) {
-              this.fullStars.push(rate);
-            }
-            if (value % 1 >= 0.5) {
-              this.halfStars.push(rate);
-            }
-            for (let i = 1; i < 5 - value; i++) {
-              this.noStars.push(rate);
-            }
           });
-          this.rating = this.average(this.ratings);
+          this.rating = this.average(this.ratings).toFixed(2);
+          let value = this.rating;
+
+          this.fullStars = [];
+          this.halfStars = [];
+          this.noStars = [];
+          for (let i = 1; i < value; i++) {
+            this.fullStars.push(value);
+          }
+          if (value % 1 >= 0.5) {
+            this.halfStars.push(value);
+          } else if (value % 1 < 0.5) {
+            this.noStars.push(value);
+          }
+          for (let i = 1; i < 5 - value; i++) {
+            this.noStars.push(value);
+          }
         });
     });
   }

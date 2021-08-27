@@ -58,49 +58,37 @@ export class ProductItemComponent implements OnInit {
       .getProductGlobalActivity(this.productId)
       .subscribe((ratingDocs) => {
         if (ratingDocs.length <= 0) {
+          this.fullStars = [];
+          this.halfStars = [];
+          this.noStars = ['', '', '', '', ''];
           this.rating = 'Not Rated';
           return;
         }
 
         ratingDocs.forEach((ratingDoc) => {
           let rating = ratingDoc.payload.doc.data() as Rating;
-
           let value = rating.value;
           this.ratings.push(value);
-
-          for (let i = 1; i < value; i++) {
-            this.fullStars.push({
-              productId: rating.productId,
-              userId: rating.userId,
-              value: rating.value,
-              description: rating.description,
-              imageURL: rating.imageURL,
-              timestamp: rating.timestamp,
-            });
-          }
-          if (value % 1 >= 0.5) {
-            this.halfStars.push({
-              productId: rating.productId,
-              userId: rating.userId,
-              value: rating.value,
-              description: rating.description,
-              imageURL: rating.imageURL,
-              timestamp: rating.timestamp,
-            });
-          }
-          for (let i = 1; i < 5 - value; i++) {
-            this.noStars.push({
-              productId: rating.productId,
-              userId: rating.userId,
-              value: rating.value,
-              description: rating.description,
-              imageURL: rating.imageURL,
-              timestamp: rating.timestamp,
-            });
-          }
         });
+        this.rating = this.average(this.ratings).toFixed(2);
 
-        this.rating = this.average(this.ratings);
+        let value = this.rating;
+        this.fullStars = [];
+        this.halfStars = [];
+        this.noStars = [];
+
+        for (let i = 1; i < value; i++) {
+          this.fullStars.push(value);
+        }
+        if (value % 1 >= 0.5) {
+          this.halfStars.push(value);
+        }
+        else if (value % 1 < 0.5) {
+          this.noStars.push(value);
+        }
+        for (let i = 1; i < 5 - value; i++) {
+          this.noStars.push(value);
+        }
       });
   }
 

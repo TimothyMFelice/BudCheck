@@ -42,34 +42,13 @@ export class ActivityItemComponent implements OnInit {
 
     let value = this.ratingData.value;
     for (let i = 1; i < value; i++) {
-      this.fullStars.push({
-        productId: this.ratingData.productId,
-        userId: this.ratingData.userId,
-        value: this.ratingData.value,
-        description: this.ratingData.description,
-        imageURL: this.ratingData.imageURL,
-        timestamp: this.ratingData.timestamp,
-      });
+      this.fullStars.push(value);
     }
     if (value % 1 >= 0.5) {
-      this.halfStars.push({
-        productId: this.ratingData.productId,
-        userId: this.ratingData.userId,
-        value: this.ratingData.value,
-        description: this.ratingData.description,
-        imageURL: this.ratingData.imageURL,
-        timestamp: this.ratingData.timestamp,
-      });
+      this.halfStars.push(value);
     }
     for (let i = 1; i < 5 - value; i++) {
-      this.noStars.push({
-        productId: this.ratingData.productId,
-        userId: this.ratingData.userId,
-        value: this.ratingData.value,
-        description: this.ratingData.description,
-        imageURL: this.ratingData.imageURL,
-        timestamp: this.ratingData.timestamp,
-      });
+      this.noStars.push(value);
     } 
   }
 

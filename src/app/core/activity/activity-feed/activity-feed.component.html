@@ -1,28 +1,11 @@
-<header class="py-5">
-  <div class="container">
-    <div class="text-center">
-      <h1 class="display-4 fw-bolder border-bottom border-2">
-        Global Recent Activity
-      </h1>
+<div class="container">
+  <h1 class="text-center my-4 display-4 fw-bolder border-bottom border-2">
+    Global Recent Activity
+  </h1>
+
+  <div class="row">
+    <div *ngFor="let ratingDoc of ratingsDocs" class="col-lg-3 col-md-4 col-sm-6 mb-4">
+      <app-activity-item [ratingDoc]="ratingDoc"></app-activity-item>
     </div>
   </div>
-</header>
-<section>
-  <div class="container px-4 px-lg-5">
-    <div
-      class="
-        row
-        gx-4 gx-lg-5
-        row-cols-2 row-cols-md-3 row-cols-xl-4
-        justify-content-center
-      "
-    >
-      <div class="col mb-5">
-        <app-activity-item
-          *ngFor="let ratingDoc of ratingsDocs"
-          [ratingDoc]="ratingDoc"
-        ></app-activity-item>
-      </div>
-    </div>
-  </div>
-</section>
+</div>
