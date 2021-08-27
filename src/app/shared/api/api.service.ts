@@ -63,9 +63,7 @@ export class ApiService {
   }
 
   // PRODUCTS
-  createProduct(productData: Product) {
-    const productId = this.afs.createId();
-
+  createProduct(productData: Product, productId) {
     const productRef: AngularFirestoreDocument<any> = this.afs.doc(
       `flowers/${productId}`
     );
@@ -91,6 +89,13 @@ export class ApiService {
   }
 
   // RATINGS
+  rateProduct(rating: Rating, ratingId) {
+    const ratingRef: AngularFirestoreDocument<any> = this.afs.doc(
+      `ratings/${ratingId}`
+    );
+    return ratingRef.set(rating, { merge: true });
+  }
+
   getAllRatings() {
     return this.afs
       .collection<Rating>(`ratings`, (ref) => ref.limit(10))

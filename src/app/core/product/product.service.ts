@@ -42,7 +42,7 @@ export class ProductService {
       const downloadURL = fileRef.getDownloadURL();
       downloadURL.subscribe((url) => {
         productData.imageURL = url;
-        return this.api.createProduct(productData);
+        return this.api.createProduct(productData, productId);
       });
     });
   }

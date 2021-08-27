@@ -33,7 +33,7 @@
       </div>
       <div class="modal-body">
         <form
-          [formGroup]="productCheckInForm"
+          [formGroup]="ratingCheckinForm"
           (ngSubmit)="checkInProduct(imageInput)"
         >
           <!-- Description Input -->
@@ -81,7 +81,7 @@
             <button
               type="submit"
               class="btn btn-primary"
-              [disabled]="!productCheckInForm.valid"
+              [disabled]="!ratingCheckinForm.valid"
             >
               Check In
             </button>
