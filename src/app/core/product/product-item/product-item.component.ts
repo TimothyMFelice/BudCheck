@@ -46,9 +46,12 @@ export class ProductItemComponent implements OnInit {
   }
 
   getProductBrandData() {
-    this.productService.getBrand(this.productData.brandId).subscribe((doc) => {
+    this.productService.getBrand(this.productData.brandId).subscribe((brandDoc) => {
       this.brandData = {
-        displayName: (doc.payload.data() as Brand).displayName,
+        displayName: brandDoc.payload.data().displayName,
+        description: brandDoc.payload.data().description,
+        imageURL: brandDoc.payload.data().imageURL,
+        location: brandDoc.payload.data().location,
       };
     });
   }

@@ -88,6 +88,14 @@ export class ApiService {
     return this.afs.collection<Brand>('brands').doc(brandId).snapshotChanges();
   }
 
+  getBrandGlobalActivity(brandId) {
+    return this.afs
+      .collection<Rating>(`ratings`, (ref) =>
+        ref.where('brandId', '==', brandId)
+      )
+      .snapshotChanges();
+  }
+
   // RATINGS
   rateProduct(rating: Rating, ratingId) {
     const ratingRef: AngularFirestoreDocument<any> = this.afs.doc(

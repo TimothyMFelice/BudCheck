@@ -88,6 +88,9 @@ export class ActivityItemComponent implements OnInit {
       .subscribe((brandDoc) => {
         this.brandData = {
           displayName: brandDoc.payload.data().displayName,
+          description: brandDoc.payload.data().description,
+          imageURL: brandDoc.payload.data().imageURL,
+          location: brandDoc.payload.data().location,
         };
       });
   }

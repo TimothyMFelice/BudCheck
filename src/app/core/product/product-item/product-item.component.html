@@ -7,8 +7,20 @@
       <div class="text-center">
         <!-- Product name-->
         <h5 class="fw-bolder">
-          {{ productData?.displayName }}
-          <p class="fw-lighter">by {{ brandData?.displayName }}</p>
+          <a
+            class="link-dark text-decoration-none"
+            [routerLink]="['/product', productId]"
+          >
+            {{ productData?.displayName }}
+          </a>
+          <p class="fw-lighter">
+            by
+            <a
+              class="link-dark text-decoration-none"
+              [routerLink]="['/brand', productData?.brandId]"
+              >{{ brandData?.displayName }}</a
+            >
+          </p>
         </h5>
         <!-- Product reviews-->
         <div class="d-flex justify-content-center small mb-2">

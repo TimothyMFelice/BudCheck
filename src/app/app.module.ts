@@ -20,6 +20,7 @@ import { ActivityFeedComponent } from './core/activity/activity-feed/activity-fe
 import { ActivityItemComponent } from './core/activity/activity-item/activity-item.component';
 import { ProductCreateComponent } from './core/product/product-create/product-create.component';
 import { RatingCheckinComponent } from './core/rating/rating-checkin/rating-checkin.component';
+import { BrandPageComponent } from './core/brand/brand-page/brand-page.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { RatingCheckinComponent } from './core/rating/rating-checkin/rating-chec
     ActivityItemComponent,
     ProductCreateComponent,
     RatingCheckinComponent,
+    BrandPageComponent,
   ],
   imports: [
     BrowserModule,
