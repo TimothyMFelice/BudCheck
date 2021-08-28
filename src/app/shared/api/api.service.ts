@@ -104,6 +104,13 @@ export class ApiService {
     return ratingRef.set(rating, { merge: true });
   }
 
+  getRating(ratingId) {
+    return this.afs
+      .collection<Rating>('ratings')
+      .doc(ratingId)
+      .snapshotChanges();
+  }
+
   getAllRatings() {
     return this.afs
       .collection<Rating>(`ratings`, (ref) => ref.limit(10))

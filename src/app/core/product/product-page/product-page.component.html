@@ -5,8 +5,20 @@
         <img class="card-img-top mb-5 mb-md-0" [src]="productData?.imageURL" />
       </div>
       <div class="col-md-6">
-        <h1 class="display-5 fw-bolder">{{ productData?.displayName }}</h1>
-        <div class="fs-5 mb-2">{{ brandData?.displayName }}</div>
+        <h1 class="display-5 fw-bolder">
+          <a
+            class="link-dark text-decoration-none"
+            [routerLink]="['/product', productId]"
+            >{{ productData?.displayName }}</a
+          >
+        </h1>
+        <div class="fs-5 mb-2">
+          <a
+            class="link-dark text-decoration-none"
+            [routerLink]="['/brand', productData?.brandId]"
+            >{{ brandData?.displayName }}</a
+          >
+        </div>
         <div class="d-flex mb-2">
           <div
             *ngFor="let fill of fullStars"

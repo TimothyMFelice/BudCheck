@@ -13,6 +13,8 @@ import { ActivityService } from '../activity.service';
 export class ActivityItemComponent implements OnInit {
   @Input() ratingDoc: any;
 
+  ratingId: any;
+
   ratingData: Rating;
   userData: User;
   productData: Product;
@@ -31,6 +33,7 @@ export class ActivityItemComponent implements OnInit {
   }
 
   private getRatingData() {
+    this.ratingId = this.ratingDoc.payload.doc.id;
     this.ratingData = {
       productId: this.ratingDoc.payload.doc.data().productId,
       userId: this.ratingDoc.payload.doc.data().userId,
@@ -49,7 +52,7 @@ export class ActivityItemComponent implements OnInit {
     }
     for (let i = 1; i < 5 - value; i++) {
       this.noStars.push(value);
-    } 
+    }
   }
 
   private getRatingUserData() {

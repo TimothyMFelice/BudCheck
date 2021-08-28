@@ -21,6 +21,7 @@ import { ActivityItemComponent } from './core/activity/activity-item/activity-it
 import { ProductCreateComponent } from './core/product/product-create/product-create.component';
 import { RatingCheckinComponent } from './core/rating/rating-checkin/rating-checkin.component';
 import { BrandPageComponent } from './core/brand/brand-page/brand-page.component';
+import { RatingPageComponent } from './core/rating/rating-page/rating-page.component';
 
 @NgModule({
   declarations: [
@@ -36,6 +37,7 @@ import { BrandPageComponent } from './core/brand/brand-page/brand-page.component
     ProductCreateComponent,
     RatingCheckinComponent,
     BrandPageComponent,
+    RatingPageComponent,
   ],
   imports: [
     BrowserModule,

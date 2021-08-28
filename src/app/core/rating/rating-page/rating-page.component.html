@@ -1,0 +1,51 @@
+<section class="py-5">
+    <div class="container px-4 px-lg-5 my-5 overflow-hidden mh-100">
+      <div class="row gx-4 gx-lg-5 align-items-center">
+        <div class="col-md-6">
+          <img class="card-img-top mb-5 mb-md-0" [src]="ratingData?.imageURL" />
+        </div>
+        <div class="col-md-6">
+          <h1 class="display-5 fw-bolder">
+            <a
+              class="link-dark text-decoration-none"
+              [routerLink]="['/product', ratingData?.productId]"
+              >{{ productData?.displayName }}</a
+            >
+          </h1>
+          <div class="fs-5 mb-2">
+            <a
+              class="link-dark text-decoration-none"
+              [routerLink]="['/brand', productData?.brandId]"
+              >{{ brandData?.displayName }}</a
+            >
+          </div>
+          <div class="d-flex mb-2">
+            <div
+              *ngFor="let fill of fullStars"
+              class="text-warning bi bi-star-fill"
+            ></div>
+            <div
+              *ngFor="let fill of halfStars"
+              class="text-warning bi bi-star-half"
+            ></div>
+            <div
+              *ngFor="let fill of noStars"
+              class="text-warning bi bi-star"
+            ></div>
+            <p class="ps-2">({{ ratingData?.value }})</p>
+          </div>
+          <p class="lead" style="max-height: 250px; overflow-y: hidden">
+            {{ productData?.description }}
+          </p>
+          <div class="d-flex justify-content-between">
+            <div class="card-footer">
+              <p class="m-0">
+                THC: {{ productData?.thc }} | CBD: {{ productData?.cbd }}
+              </p>
+              <p class="m-0">{{ productData?.cannabisType }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>

@@ -9,6 +9,7 @@ import { BrandPageComponent } from './core/brand/brand-page/brand-page.component
 import { ProductCreateComponent } from './core/product/product-create/product-create.component';
 import { ProductFeedComponent } from './core/product/product-feed/product-feed.component';
 import { ProductPageComponent } from './core/product/product-page/product-page.component';
+import { RatingPageComponent } from './core/rating/rating-page/rating-page.component';
 
 const routes: Routes = [
   {
@@ -27,6 +28,10 @@ const routes: Routes = [
   {
     path: 'activity',
     component: ActivityFeedComponent,
+  },
+  {
+    path: 'rating/:id',
+    component: RatingPageComponent,
   },
   {
     path: 'products',

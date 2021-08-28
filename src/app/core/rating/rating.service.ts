@@ -28,4 +28,16 @@ export class RatingService {
   createNewId() {
     return this.api.createNewId();
   }
+
+  getRating(ratingId) {
+    return this.api.getRating(ratingId);
+  }
+
+  getProduct(productId) {
+    return this.api.getProduct(productId);
+  }
+  
+  getBrand(brandId) {
+    return this.api.getBrand(brandId);
+  }
 }
