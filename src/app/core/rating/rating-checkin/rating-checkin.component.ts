@@ -1,9 +1,11 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Form, FormBuilder, FormGroup, Validators } from '@angular/forms';
-import * as firebase from 'firebase';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthenticationService } from 'src/app/authentication/authentication.service';
 import { Rating } from 'src/app/shared/rating/rating.model';
 import { RatingService } from '../rating.service';
+import { Timestamp } from '@firebase/firestore-types';
+import { AngularFirestore } from '@angular/fire/firestore';
+import { formatDate } from '@angular/common';
 
 @Component({
   selector: 'app-rating-checkin',
@@ -15,7 +17,7 @@ export class RatingCheckinComponent implements OnInit {
 
   ratingCheckinForm: FormGroup;
 
-  constructor(private fb: FormBuilder, private auth: AuthenticationService, private ratingService: RatingService) {}
+  constructor(private fb: FormBuilder, private auth: AuthenticationService, private ratingService: RatingService, private afs: AngularFirestore) {}
 
   ngOnInit(): void {
     this.setUpForm();
@@ -48,7 +50,7 @@ export class RatingCheckinComponent implements OnInit {
       value: this.rating.value,
       description: this.description.value,
       imageURL: '',
-      timestamp: firebase.default.firestore.FieldValue.serverTimestamp(),
+      timestamp: formatDate(new Date(), 'dd-MM-yyyy hh:mm:ss a', 'en-US', '+0530'),
     };
 
     const file = imageInput.files![0];

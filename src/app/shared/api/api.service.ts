@@ -23,7 +23,7 @@ export class ApiService {
   public signInWithEmailAndPassword(email, password) {
     return this.afAuth
       .signInWithEmailAndPassword(email, password)
-      .then((result) => {})
+      .then(() => {})
       .catch((error) => {
         window.alert(error.message);
       });
