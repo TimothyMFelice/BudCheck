@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Brand } from 'src/app/shared/brand/brand.model';
-import { Rating } from 'src/app/shared/rating/rating.model';
 import { BrandService } from '../brand.service';
 
 @Component({

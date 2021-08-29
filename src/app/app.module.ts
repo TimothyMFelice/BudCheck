@@ -47,7 +47,7 @@ import { RatingPageComponent } from './core/rating/rating-page/rating-page.compo
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,
     AngularFirestoreModule,
-    AngularFireStorageModule,
+    AngularFireStorageModule
   ],
   providers: [],
   bootstrap: [AppComponent],

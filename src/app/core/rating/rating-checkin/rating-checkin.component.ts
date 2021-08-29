@@ -1,9 +1,9 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Form, FormBuilder, FormGroup, Validators } from '@angular/forms';
-import * as firebase from 'firebase';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthenticationService } from 'src/app/authentication/authentication.service';
 import { Rating } from 'src/app/shared/rating/rating.model';
 import { RatingService } from '../rating.service';
+import * as firebase from 'firebase';
 
 @Component({
   selector: 'app-rating-checkin',
